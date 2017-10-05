@@ -41,7 +41,7 @@ Alert.prototype = {
 						list  = [];
 
 					Object.keys(datas).map(function(key, index) {
-						if (datas[key]['$']['departement'] == 44 && datas[key]['$']['couleur'] > 1) {
+						if (datas[key]['$']['departement'] == 44 && datas[key]['$']['couleur'] > 0) {
 							var risk = {
 								departement   : alertKeys.depts[datas[key]['$']['departement']],
 								phenomenon    : alertKeys.risks[parseInt(datas[key]['$']['phenomene'])],
@@ -73,4 +73,3 @@ Alert.getAlert = function(callback)
 };
 
 module.exports = Alert;
-
