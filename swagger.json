@@ -1,0 +1,72 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "L'API alertNantes récupère les alertes météorologiques mises à disposition par Météo France en temps réel.",
+    "version": "1.0.0",
+    "title": "alertNantes",
+    "contact": {
+      "email": "berthe.thomas01@gmail.com"
+    },
+    "license": {
+      "name": "leroux.tanguy.51@gmail.com souchu.laura@gmail.com"
+    }
+  },
+  "host": "localhost:8002",
+  "tags": [
+    {
+      "name": "alertNantes",
+      "description": "API permettant de récupérer les alertes météorologiques de Nantes en temps réel"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/alert": {
+      "get": {
+        "tags": [
+          "alertNantes"
+        ],
+        "summary": "Retourne les alertes météos de météofrance pour la ville de Nantes",
+        "description": "",
+        "operationId": "getAlert",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Opération réussie",
+            "schema": {
+              "$ref": "#/definitions/Alert"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Alert": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "departement": {
+            "type": "string"
+          },
+          "phenomenon": {
+            "type": "string"
+          },
+          "couleur": {
+            "type": "string"
+          },
+          "dateDebutEvtTU": {
+            "type": "string"
+          },
+          "dateFinEvtTU": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
